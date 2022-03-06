@@ -14,9 +14,11 @@ const importRoutesModules = () => {
 const routes = [
   {
     path: "/",
+    name: "LandingPage",
+    meta: { layout: "auth" },
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "@/modules/app/views/components/AppRouteEntryPoint.vue"
+        /* webpackChunkName: "not-found" */ "@/modules/app/views/components/common/AppRouteEntryPoint.vue"
       ),
   },
   ...importRoutesModules(),

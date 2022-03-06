@@ -1,10 +1,17 @@
-import About from "@/modules/auth/views/About";
+import AppBaseWrapper from "@/modules/app/views/components/base/AppBaseWrapper";
 
 export default {
-  path: "/about",
-  name: "About",
-  // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited. src/modules/auth/views/About.vue
-  component: About,
+  path: "/auth",
+  component: AppBaseWrapper,
+  children: [
+    {
+      path: "login",
+      name: "Login",
+      meta: { layout: "auth", option: { type: "login" } },
+      component: () =>
+        import(
+          /* webpackChunkName: "auth" */ "@/modules/auth/views/AuthForm.vue"
+        ),
+    },
+  ],
 };
