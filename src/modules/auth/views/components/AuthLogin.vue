@@ -14,7 +14,12 @@
       @click:append="showPassword = !showPassword"
       required
     ></v-text-field>
-    <v-btn block class="mt-3" color="blue darken-4 blue--text text--lighten-5">
+    <v-btn
+      block
+      class="mt-3"
+      color="blue darken-4 blue--text text--lighten-5"
+      @click="onLogin"
+    >
       Login
     </v-btn>
     <!-- <v-checkbox v-model="form.remember" label="Remember?" required></v-checkbox> -->
@@ -27,7 +32,7 @@ export default {
 
   data: () => ({
     form: {
-      username: "",
+      email: "",
       password: "",
       remember: false,
     },
@@ -38,8 +43,15 @@ export default {
   computed: {},
 
   methods: {
-    submit() {
-      // this.$v.$touch();
+    onLogin() {
+      this.axios
+        .post("/api/login", this.form)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     clear() {
       // this.$v.$reset();
