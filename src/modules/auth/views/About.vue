@@ -11,9 +11,9 @@
 // import HelloWorld from '@/modules/app/components/HelloWorld.vue'
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
     // HelloWorld
-  }
-}
+  },
+};
 </script>
