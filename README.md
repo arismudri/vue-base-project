@@ -1,7 +1,5 @@
 # vue-base
 
-thanks to @teguhzundi & @hudaprs for the support ..
-
 ## Project setup
 ```
 npm install
